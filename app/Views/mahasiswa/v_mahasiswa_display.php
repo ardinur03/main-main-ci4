@@ -20,7 +20,7 @@
                     <td><?= $mhs['nama'] ?></td>
                     <td><?= $mhs['umur'] ?></td>
                     <td>
-                        <a href="/mahasiswa/detail/<?= $mhs['nim'] ?>">Detail</a>
+                        <a href="/mahasiswa/<?= $mhs['nim'] ?>/detail">Detail</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
