@@ -31,6 +31,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', fn () => redirect()->to('/mahasiswa'));
 $routes->get('/', "c_Home::home");
+$routes->get('/merge', "c_Home::merge");
 $routes->get('info', "c_Info::informasi");
 // $routes->get('/', "C_Mahasiswa::display");
 

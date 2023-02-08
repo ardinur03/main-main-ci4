@@ -9,6 +9,6 @@ class c_Info extends BaseController
     public function informasi()
     {
         $title = "Page Informasi";
-        return view('v_informasi', compact('title'));
+        return view('v_Informasi', compact('title'));
     }
 }

@@ -14,20 +14,19 @@
         <table width="100%" height="520px">
             <tr>
                 <th colspan="2" height="40px" bgcolor="lightblue">
-                    <h1>Selaman datang di <?= $title ?? "Tugas web PPL" ?></h1>
+                    <h1>Selamat datang di <?= $title ?? "Tugas web PPL" ?></h1>
                 </th>
             </tr>
             <tr bgcolor="lightgray" height="10px">
                 <td>
                     <a href="/">Home</a>
                     <a href="/info">Info</a>
+                    <a href="/mahasiswa">Mahasiswa</a>
                 </td>
             </tr>
             <tr bgcolor="lavender">
                 <td colspan="2" height="504px">
-                    <center>
-                        <?= $this->renderSection('content') ?>
-                    </center>
+                    <?= $this->renderSection('content') ?>
                 </td>
             </tr>
             <tr bgcolor="lightgreen">

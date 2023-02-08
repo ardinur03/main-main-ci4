@@ -1,10 +1,9 @@
-<?= $this->extend('layouts/v_master_layout'); ?>
+<?= $this->extend('layouts/v_Template'); ?>
 <?= $this->section('content'); ?>
 <section id="form-mahasiswa-display">
     <h1><?= $title ?></h1>
 
     <a href="/mahasiswa/create">+ Tambah Data</a>
-
     <table border="1">
         <thead>
             <tr>

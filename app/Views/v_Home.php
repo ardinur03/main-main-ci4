@@ -1,4 +1,6 @@
-<?= $this->extend('layouts/v_Template'); ?>
+<?= $this->extend('layouts/v_Template') ?>
 <?= $this->section('content'); ?>
-<h1>Hallo ini adalah Home !</h1>
+<center>
+    <h1>Selamat datang di Home Page !</h1>
+</center>
 <?= $this->endsection(); ?>

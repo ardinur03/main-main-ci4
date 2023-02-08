@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/v_master_layout'); ?>
+<?= $this->extend('layouts/v_Template'); ?>
 <?= $this->section('content'); ?>
 <section id="form-mahasiswa-store">
     <?php
