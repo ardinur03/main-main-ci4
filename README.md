@@ -9,7 +9,7 @@ This repository contains the results of my learning in the Introduction to Softw
 ## Getting Started 📃
 1. Clone the repository to your local machine ☕
 ```
-git clone https://github.com/user/introduction-to-software.git
+git clone https://github.com/ardinur03/main-main-ci4.git
 ````
 2. Navigate to the repository directory 🌠
 ```
