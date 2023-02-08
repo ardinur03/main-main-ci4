@@ -27,4 +27,11 @@ class M_Mahasiswa extends CodeIgniterModel
     {
         return $this->db->query("INSERT INTO {$this->table} (nim, nama, umur) VALUES ('{$data['nim']}', '{$data['nama']}', '{$data['umur']}')");
     }
+
+    public function getMahasiswa($nim)
+    {
+        $data = $this->db->query("SELECT * FROM {$this->table} WHERE nim = '{$nim}'");
+        $this->db->close();
+        return $data->getRowArray();
+    }
 }

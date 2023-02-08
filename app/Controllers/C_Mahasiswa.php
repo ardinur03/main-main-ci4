@@ -31,10 +31,19 @@ class C_Mahasiswa extends BaseController
         return view('mahasiswa/v_mahasiswa_display', $data);
     }
 
+    public function detail($nim)
+    {
+        $data = [
+            'mahasiswa' => $this->model->getMahasiswa($nim),
+            'title' => 'Detail Mahasiswa'
+        ];
+        return view('mahasiswa/v_mahasiswa_detail', $data);
+    }
+
     public function create()
     {
         $data = [
-            'title' => 'Mahasiswa'
+            'title' => 'Tambah Mahasiswa'
         ];
         return view('mahasiswa/v_mahasiswa_create', $data);
     }

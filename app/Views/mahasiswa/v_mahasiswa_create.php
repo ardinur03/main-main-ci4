@@ -12,8 +12,9 @@
         echo '</div>';
     }
     ?>
-    <!-- < #= form_open('/mahasiswa/store'); 
-            ?> -->
+
+    <h1><?= $title ?></h1>
+
     <form action="/mahasiswa/store" method="post">
         <div>
             <label for="nim">NIM</label> <br>

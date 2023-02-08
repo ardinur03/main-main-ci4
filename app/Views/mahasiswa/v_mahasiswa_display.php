@@ -10,6 +10,7 @@
                 <th>NIM</th>
                 <th>Mahasiswa</th>
                 <th>Umur</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,9 @@
                     <td><?= $mhs['nim'] ?></td>
                     <td><?= $mhs['nama'] ?></td>
                     <td><?= $mhs['umur'] ?></td>
+                    <td>
+                        <a href="/mahasiswa/detail/<?= $mhs['nim'] ?>">Detail</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -39,6 +39,7 @@ $routes->group('mahasiswa',  function ($routes) {
     $routes->get('', "C_Mahasiswa::display");
     $routes->get('create', "C_Mahasiswa::create");
     $routes->post('store', "C_Mahasiswa::store");
+    $routes->get('detail/(:num)', "C_Mahasiswa::detail/$1");
 });
 
 /*
