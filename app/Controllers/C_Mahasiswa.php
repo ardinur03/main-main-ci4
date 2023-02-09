@@ -34,7 +34,7 @@ class C_Mahasiswa extends BaseController
     public function detail($nim)
     {
         $data = [
-            'mahasiswa' => $this->model->getMahasiswa($nim),
+            'mahasiswa' => $this->model->getDetailMahasiswa($nim),
             'title' => 'Detail Mahasiswa'
         ];
         return view('mahasiswa/v_mahasiswa_detail', $data);
@@ -90,6 +90,58 @@ class C_Mahasiswa extends BaseController
         ];
 
         $this->model->mahasiswa_store($data);
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan!');
+        return redirect()->to('/mahasiswa');
+    }
+
+    public function delete($nim)
+    {
+        $this->model->mahasiswaDelete($nim);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus!');
+        return redirect()->to('/mahasiswa');
+    }
+
+    public function edit($nim)
+    {
+        $data = [
+            'mahasiswa' => $this->model->getDetailMahasiswa($nim),
+            'title' => 'Edit Mahasiswa'
+        ];
+        return view('mahasiswa/v_mahasiswa_edit', $data);
+    }
+
+    public function update($nim)
+    {
+        if (!$this->validate([
+            'nama' => [
+                'label' => 'Nama',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'umur' => [
+                'label' => 'Umur',
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka'
+                ]
+            ]
+        ])) {
+            return view('/mahasiswa/v_mahasiswa_edit', [
+                'mahasiswa' => $this->model->getDetailMahasiswa($nim),
+                'errors' => $this->validator->getErrors(),
+                'title' => 'Update Mahasiswa Error !'
+            ]);
+        }
+        $data = [
+            'nama' => $this->request->getPost('nama'),
+            'umur' => $this->request->getPost('umur')
+        ];
+
+        $this->model->mahasiswaUpdate($data, $nim);
+        session()->setFlashdata('pesan', 'Data berhasil diubah!');
         return redirect()->to('/mahasiswa');
     }
 }

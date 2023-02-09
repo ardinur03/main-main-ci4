@@ -28,10 +28,20 @@ class M_Mahasiswa extends CodeIgniterModel
         return $this->db->query("INSERT INTO {$this->table} (nim, nama, umur) VALUES ('{$data['nim']}', '{$data['nama']}', '{$data['umur']}')");
     }
 
-    public function getMahasiswa($nim)
+    public function getDetailMahasiswa($nim)
     {
         $data = $this->db->query("SELECT * FROM {$this->table} WHERE nim = '{$nim}'");
         $this->db->close();
         return $data->getRowArray();
+    }
+
+    public function mahasiswaDelete($nim)
+    {
+        return $this->db->query("DELETE FROM {$this->table} WHERE nim = '{$nim}'");
+    }
+
+    public function mahasiswaUpdate($data, $nim)
+    {
+        return $this->db->query("UPDATE {$this->table} SET nama = '{$data['nama']}', umur = '{$data['umur']}' WHERE nim = '{$nim}'");
     }
 }

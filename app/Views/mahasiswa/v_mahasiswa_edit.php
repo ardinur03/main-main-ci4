@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/v_Template'); ?>
 <?= $this->section('content'); ?>
-<section id="form-mahasiswa-store">
+<section id="form-mahasiswa-edit">
     <?php
     if (isset($errors)) {
         echo '<div style="width: 300px"; border-radius: 5px; >';
@@ -15,19 +15,16 @@
 
     <h1><?= $title ?></h1>
 
-    <form action="/mahasiswa/store" method="post">
+    <form action="<?= base_url('/mahasiswa/' . $mahasiswa['nim'] . '/update') ?>" method="post">
         <?= csrf_field(); ?>
-        <div>
-            <label for="nim">NIM</label> <br>
-            <input type="number" name="nim" id="nim" value="<?= set_value('nim') ?>">
-        </div>
+        <input type="hidden" name="_method" value="PUT">
         <div>
             <label for="nama">Nama Mahasiswa</label> <br>
-            <input type="text" name="nama" id="nama" value="<?= set_value('nama') ?>">
+            <input type="text" name="nama" id="nama" value="<?= old('nama')  ?? $mahasiswa['nama'] ?>">
         </div>
         <div>
             <label for="umur">Umur</label> <br>
-            <input type="number" name="umur" id="umur" value="<?= set_value('umur') ?>">
+            <input type="number" name="umur" id="umur" value="<?= old('umur') ?? $mahasiswa['umur'] ?>">
         </div>
         <div>
             <a href="/mahasiswa">&laquo; Kembali</a>

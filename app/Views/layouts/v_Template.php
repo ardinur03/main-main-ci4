@@ -21,7 +21,16 @@
                 <td>
                     <a href="/">Home</a>
                     <a href="/info">Info</a>
-                    <a href="/mahasiswa">Mahasiswa</a>
+                    <?php if (session()->get('isLoggedIn')) : ?>
+                        <a href="/mahasiswa">Mahasiswa</a>
+                    <?php endif; ?>
+                </td>
+                <td align="right">
+                    <?php if (session()->get('isLoggedIn')) : ?>
+                        <a href="/logout">Logout</a>
+                    <?php else : ?>
+                        <a href="/login">Login</a>
+                    <?php endif; ?>
                 </td>
             </tr>
             <tr bgcolor="lavender">

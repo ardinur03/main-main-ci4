@@ -29,18 +29,24 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', fn () => redirect()->to('/mahasiswa'));
+
 $routes->get('/', "c_Home::home");
-$routes->get('/merge', "c_Home::merge");
 $routes->get('info', "c_Info::informasi");
-// $routes->get('/', "C_Mahasiswa::display");
+
+$routes->get('login', 'C_Auth::index');
+$routes->post('login', 'C_Auth::login');
+$routes->get('logout', 'C_Auth::logout');
 
 $routes->group('mahasiswa',  function ($routes) {
     $routes->get('', "C_Mahasiswa::display");
     $routes->get('create', "C_Mahasiswa::create");
     $routes->post('store', "C_Mahasiswa::store");
     $routes->get('(:num)/detail', "C_Mahasiswa::detail/$1");
+    $routes->get('(:num)/edit', "C_Mahasiswa::edit/$1");
+    $routes->put('(:num)/update', "C_Mahasiswa::update/$1");
+    $routes->delete('(:num)/delete', "C_Mahasiswa::delete/$1");
 });
+
 
 /*
  * --------------------------------------------------------------------

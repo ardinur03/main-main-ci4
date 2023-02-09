@@ -8,7 +8,7 @@ class c_Home extends BaseController
 {
     public function home()
     {
-        $title = "Page Home";
+        $title = "Home Page";
         return view('v_Home', compact('title'));
     }
 
