@@ -19,9 +19,9 @@ cd main-main-ci4
 ```
 composer install
 ```
-3. Import the sql database file "akademik.sql" on your web server. 🌎
-4. Run the CI4 web in the terminal 🚀
+4. Import the sql database file "akademik.sql" on your web server. 🌎
+5. Run the CI4 web in the terminal 🚀
 ```
 php spark serve
 ```
-5. Start exploring the contents of the repository 🙌
+6. Start exploring the contents of the repository 🙌
