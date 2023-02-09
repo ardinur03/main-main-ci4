@@ -15,15 +15,6 @@ class C_Mahasiswa extends BaseController
 
     public function index()
     {
-        $data =  [
-            'name' => 'Muhamad Ardi Nur Insan',
-            'title' => 'Mahasiswa'
-        ];
-        return view('mahasiswa/index', $data);
-    }
-
-    public function display()
-    {
         $data = [
             'mahasiswa' => $this->model->getAll(),
             'title' => 'Mahasiswa'
@@ -31,7 +22,7 @@ class C_Mahasiswa extends BaseController
         return view('mahasiswa/v_mahasiswa_display', $data);
     }
 
-    public function detail($nim)
+    public function show($nim)
     {
         $data = [
             'mahasiswa' => $this->model->getDetailMahasiswa($nim),
@@ -40,7 +31,7 @@ class C_Mahasiswa extends BaseController
         return view('mahasiswa/v_mahasiswa_detail', $data);
     }
 
-    public function create()
+    public function new()
     {
         $data = [
             'title' => 'Tambah Mahasiswa'
@@ -48,7 +39,7 @@ class C_Mahasiswa extends BaseController
         return view('mahasiswa/v_mahasiswa_create', $data);
     }
 
-    public function store()
+    public function create()
     {
         if (!$this->validate([
             'nim' => [

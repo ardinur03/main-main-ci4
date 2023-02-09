@@ -8,6 +8,6 @@
         <li>Umur : <?= $mahasiswa['umur'] ?></li>
     </ul>
 
-    <a href="/mahasiswa">&laquo; Kembali</a>
+    <a href="<?= base_url('mahasiswa') ?>">&laquo; Kembali</a>
 </section>
 <?= $this->endsection(); ?>

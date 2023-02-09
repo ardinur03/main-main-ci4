@@ -15,7 +15,7 @@
 
     <h1><?= $title ?></h1>
 
-    <form action="/mahasiswa/store" method="post">
+    <form action="<?= base_url('mahasiswa') ?>" method="post">
         <?= csrf_field(); ?>
         <div>
             <label for="nim">NIM</label> <br>
@@ -30,7 +30,7 @@
             <input type="number" name="umur" id="umur" value="<?= set_value('umur') ?>">
         </div>
         <div>
-            <a href="/mahasiswa">&laquo; Kembali</a>
+            <a href="<?= base_url('mahasiswa') ?>">&laquo; Kembali</a>
             <input type="submit" name="simpan" value="Simpan">
         </div>
     </form>

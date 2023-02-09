@@ -15,6 +15,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
+
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -37,15 +38,19 @@ $routes->get('login', 'C_Auth::index');
 $routes->post('login', 'C_Auth::login');
 $routes->get('logout', 'C_Auth::logout');
 
-$routes->group('mahasiswa',  function ($routes) {
-    $routes->get('', "C_Mahasiswa::display");
-    $routes->get('create', "C_Mahasiswa::create");
-    $routes->post('store', "C_Mahasiswa::store");
-    $routes->get('(:num)/detail', "C_Mahasiswa::detail/$1");
-    $routes->get('(:num)/edit', "C_Mahasiswa::edit/$1");
-    $routes->put('(:num)/update', "C_Mahasiswa::update/$1");
-    $routes->delete('(:num)/delete', "C_Mahasiswa::delete/$1");
-});
+// #----> sebelum menggunakan resource
+// $routes->group('mahasiswa',  function ($routes) {
+//     $routes->get('', "C_Mahasiswa::display");
+//     $routes->get('create', "C_Mahasiswa::create");
+//     $routes->post('store', "C_Mahasiswa::store");
+//     $routes->get('(:num)/detail', "C_Mahasiswa::detail/$1");
+//     $routes->get('(:num)/edit', "C_Mahasiswa::edit/$1");
+//     $routes->put('(:num)/update', "C_Mahasiswa::update/$1");
+//     $routes->delete('(:num)/delete', "C_Mahasiswa::delete/$1");
+// });
+
+// #----> setelah menggunakan resource (gunakan php spark routes pada terminal untuk melihat perbedaannya)
+$routes->resource('mahasiswa', ['controller' => 'C_Mahasiswa']);
 
 
 /*

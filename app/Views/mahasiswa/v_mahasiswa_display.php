@@ -11,7 +11,7 @@
         </div>
     <?php endif; ?>
 
-    <a href="/mahasiswa/create">+ Tambah Data</a>
+    <a href="<?= base_url('/mahasiswa/new') ?>">+ Tambah Data</a>
     <table border="1" width="60%">
         <thead>
             <tr>
@@ -28,13 +28,13 @@
                     <td><?= $mhs['nama'] ?></td>
                     <td><?= $mhs['umur'] ?></td>
                     <td>
-                        <a href="/mahasiswa/<?= $mhs['nim'] ?>/detail">Detail</a>
+                        <a href="<?= base_url("mahasiswa/{$mhs['nim']}")  ?>">Detail</a>
                     </td>
                     <td>
-                        <a href="/mahasiswa/<?= $mhs['nim'] ?>/edit">Edit</a>
+                        <a href="<?= base_url("mahasiswa/{$mhs['nim']}/edit")  ?>">Edit</a>
                     </td>
                     <td>
-                        <form action="/mahasiswa/<?= $mhs['nim'] ?>/delete" method="post">
+                        <form action="<?= base_url("mahasiswa/{$mhs['nim']}")  ?>" method="post">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" onclick="return confirm('Apakah anda yakin?')">Delete</button>
