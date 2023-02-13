@@ -15,8 +15,10 @@ class C_Mahasiswa extends BaseController
 
     public function index()
     {
+        $keyword = $this->request->getVar('keyword') ? $this->request->getVar('keyword') : null;
+        $mahasiswa = $keyword ? $this->model->mahasiswaSearch($keyword) : $this->model->getAll();
         $data = [
-            'mahasiswa' => $this->model->getAll(),
+            'mahasiswa' => $mahasiswa,
             'title' => 'Mahasiswa'
         ];
         return view('mahasiswa/v_mahasiswa_display', $data);
@@ -134,5 +136,14 @@ class C_Mahasiswa extends BaseController
         $this->model->mahasiswaUpdate($data, $nim);
         session()->setFlashdata('pesan', 'Data berhasil diubah!');
         return redirect()->to('/mahasiswa');
+    }
+
+    public function search()
+    {
+        $data = [
+            'mahasiswa' => $this->model->mahasiswaSearch($this->request->getPost('keyword')),
+            'title' => 'Hasil Cari Mahasiswa'
+        ];
+        return view('mahasiswa/v_mahasiswa_display', $data);
     }
 }

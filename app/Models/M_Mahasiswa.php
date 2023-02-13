@@ -44,4 +44,11 @@ class M_Mahasiswa extends CodeIgniterModel
     {
         return $this->db->query("UPDATE {$this->table} SET nama = '{$data['nama']}', umur = '{$data['umur']}' WHERE nim = '{$nim}'");
     }
+
+    public function mahasiswaSearch($keyword)
+    {
+        $data = $this->db->query("SELECT * FROM {$this->table} WHERE nim LIKE '%{$keyword}%' OR nama LIKE '%{$keyword}%' OR umur LIKE '%{$keyword}%'");
+        $this->db->close();
+        return $data->getResultArray();
+    }
 }

@@ -32,4 +32,9 @@ class M_User extends Model
     {
         return $this->where(['email' => $email])->first();
     }
+
+    public function findByEmailOrUsername(string $email_or_username)
+    {
+        return $this->where(['email' => $email_or_username])->orWhere(['username' => $email_or_username])->first();
+    }
 }

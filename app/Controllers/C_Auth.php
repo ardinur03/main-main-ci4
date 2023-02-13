@@ -17,17 +17,17 @@ class C_Auth extends BaseController
     {
         $model = new M_User();
 
-        $email = $this->request->getPost('email');
+        $email = $this->request->getPost('email_or_username');
         $password = $this->request->getPost('password');
 
-        $user = $model->findByEmail($email);
+        $user = $model->findByEmailOrUsername($email);
 
         if (!$user) {
-            return redirect()->to('/login')->with('error', 'Email or password is incorrect');
+            return redirect()->to('/login')->with('error', 'Email atau Password salah');
         }
 
         if (!$model->verifyPassword($password, $user['password'])) {
-            return redirect()->to('/login')->with('error', 'Email or password is incorrect');
+            return redirect()->to('/login')->with('error', 'Email atau Password salah');
         }
 
         session()->set('user_id', $user['id']);
