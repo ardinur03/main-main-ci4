@@ -20,7 +20,11 @@ cd main-main-ci4
 composer install
 ```
 4. Import the sql database file "akademik.sql" on your DBMS(Database Management System). 🌎
+  - Username : ardi
+  - Password : 12345678
+  - note : Password using Bcrypt hash in PHP with PASSWORD_DEFAULT.
 5. Run the CI4 web in the terminal 🚀
+
 ```
 php spark serve
 ```
