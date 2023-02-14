@@ -23,17 +23,17 @@ class M_User extends Model
         return $data;
     }
 
-    public function verifyPassword(string $password, string $hash)
+    public function verifyPassword($password, $hash)
     {
         return password_verify($password, $hash);
     }
 
-    public function findByEmail(string $email)
+    public function findByEmail($email)
     {
         return $this->where(['email' => $email])->first();
     }
 
-    public function findByEmailOrUsername(string $email_or_username)
+    public function findByEmailOrUsername($email_or_username)
     {
         return $this->where(['email' => $email_or_username])->orWhere(['username' => $email_or_username])->first();
     }

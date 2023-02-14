@@ -45,6 +45,8 @@ class LoginFilter implements FilterInterface
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        //
+        if (session()->get('isLoggedIn')) {
+            return redirect()->to('/mahasiswa');
+        }
     }
 }

@@ -10,12 +10,25 @@
         <?php endif; ?>
         <form action="/login" method="post">
             <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
-            <label for="username">Username</label>
-            <input type="text" name="email_or_username" id="username"> <br>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password"> <br>
-            <button type="submit">Login</button>
+            <table border="0">
+                <tr>
+                    <td> <label for="username">Username</label></td>
+                    <td>:</td>
+                    <td><input type="text" name="email_or_username" id="username"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td>:</td>
+                    <td><input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Login</button>
+                    </td>
+                </tr>
+            </table>
         </form>
+
     </center>
 </section>
 

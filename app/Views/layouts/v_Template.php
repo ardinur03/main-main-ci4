@@ -19,13 +19,13 @@
             </tr>
             <tr bgcolor="lightgray" height="10px">
                 <td>
-                    <a href="/">Home</a>
-                    <a href="/info">Info</a>
+                    <a href="/">HOME</a>
+                    <a href="/info">INFO</a>
                     <?php if (session()->get('isLoggedIn')) : ?>
-                        <a href="/mahasiswa">Mahasiswa</a>
+                        <a href="/mahasiswa">MAHASISWA</a>
                     <?php endif; ?>
                 </td>
-                <td align="right">
+                <td align="center">
                     <?php if (session()->get('isLoggedIn')) : ?>
                         <a href="/logout">Logout</a>
                     <?php else : ?>

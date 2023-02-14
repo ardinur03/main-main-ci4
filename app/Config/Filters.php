@@ -68,6 +68,10 @@ class Filters extends BaseConfig
                 'mahasiswa',
                 'mahasiswa/*',
             ],
+            'after' =>
+            [
+                'login',
+            ],
         ],
     ];
 }

@@ -16,11 +16,9 @@ class C_Auth extends BaseController
     public function login()
     {
         $model = new M_User();
-
-        $email = $this->request->getPost('email_or_username');
+        $text = $this->request->getPost('email_or_username');
         $password = $this->request->getPost('password');
-
-        $user = $model->findByEmailOrUsername($email);
+        $user = $model->findByEmailOrUsername($text);
 
         if (!$user) {
             return redirect()->to('/login')->with('error', 'Email atau Password salah');

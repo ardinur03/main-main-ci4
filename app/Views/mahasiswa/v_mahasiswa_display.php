@@ -4,20 +4,22 @@
     <h1><?= $title ?></h1>
 
     <?php if (session()->getFlashdata('pesan')) : ?>
-        <div style="width: 300px ; border-radius: 5px;">
+        <div style="width: 300px; border-radius: 5px;">
             <ul style="background-color: green; color: white; padding: 10px;">
                 <li><?= session()->getFlashdata('pesan') ?></li>
             </ul>
         </div>
     <?php endif; ?>
 
-    <a href="<?= base_url('/mahasiswa/new') ?>">+ Tambah Data</a>
+    <div style="display: flex;">
+        <a href="<?= base_url('/mahasiswa/new') ?>">+ Tambah Data</a>
 
-    <!-- form cari nama mahasiswa -->
-    <form action="<?= base_url('/mahasiswa') ?>" method="get">
-        <input type="search" name="keyword" placeholder="Masukkan Nama Mahasiswa" autofocus>
-        <button type="submit">Cari</button>
-    </form>
+        <!-- form cari nama mahasiswa -->
+        <form action="<?= base_url('/mahasiswa') ?>" method="get">
+            <input type="search" name="keyword" placeholder="Masukkan Nama Mahasiswa" autofocus>
+            <button type="submit">Cari</button>
+        </form>
+    </div>
 
 
     <table border="1" width="60%">
