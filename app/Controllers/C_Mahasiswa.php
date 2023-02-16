@@ -106,6 +106,14 @@ class C_Mahasiswa extends BaseController
     public function update($nim)
     {
         if (!$this->validate([
+            'nim' => [
+                'label' => 'Nama',
+                'rules' => 'required|numeric|min_length[9]|max_length[9]|is_unique[mahasiswa.nim,nim,' . $nim . ']',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah terdaftar'
+                ]
+            ],
             'nama' => [
                 'label' => 'Nama',
                 'rules' => 'required',
@@ -129,6 +137,7 @@ class C_Mahasiswa extends BaseController
             ]);
         }
         $data = [
+            'nim' => $this->request->getPost('nim'),
             'nama' => $this->request->getPost('nama'),
             'umur' => $this->request->getPost('umur')
         ];

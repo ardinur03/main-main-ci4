@@ -19,6 +19,10 @@
         <?= csrf_field(); ?>
         <input type="hidden" name="_method" value="PUT">
         <div>
+            <label for="nim">NIM</label> <br>
+            <input type="text" name="nim" id="nim" value="<?= old('nim')  ?? $mahasiswa['nim'] ?>">
+        </div>
+        <div>
             <label for="nama">Nama Mahasiswa</label> <br>
             <input type="text" name="nama" id="nama" value="<?= old('nama')  ?? $mahasiswa['nama'] ?>">
         </div>

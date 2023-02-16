@@ -42,7 +42,7 @@ class M_Mahasiswa extends CodeIgniterModel
 
     public function mahasiswaUpdate($data, $nim)
     {
-        return $this->db->query("UPDATE {$this->table} SET nama = '{$data['nama']}', umur = '{$data['umur']}' WHERE nim = '{$nim}'");
+        return $this->db->query("UPDATE {$this->table} SET  nim = '{$data['nim']}',  nama = '{$data['nama']}', umur = '{$data['umur']}' WHERE nim = '{$nim}'");
     }
 
     public function mahasiswaSearch($keyword)
