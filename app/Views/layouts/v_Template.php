@@ -23,6 +23,7 @@
                     <a href="/info">INFO</a>
                     <?php if (session()->get('isLoggedIn')) : ?>
                         <a href="/mahasiswa">MAHASISWA</a>
+                        <a href="/pegawai">PEGAWAI</a>
                     <?php endif; ?>
                 </td>
                 <td align="center">

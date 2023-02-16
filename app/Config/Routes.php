@@ -51,6 +51,8 @@ $routes->get('logout', 'C_Auth::logout');
 
 // #----> setelah menggunakan resource (gunakan php spark routes pada terminal untuk melihat perbedaannya)
 $routes->resource('mahasiswa', ['controller' => 'C_Mahasiswa']);
+$routes->resource('pegawai', ['controller' => 'C_Pegawai']);
+
 
 
 /*
